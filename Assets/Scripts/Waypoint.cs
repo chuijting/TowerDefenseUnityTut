@@ -6,7 +6,11 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    Vector2Int gridPos;
+    [SerializeField] Color exploredColor;
+    bool changedColor = false;
+    public bool isExplored = false;
+    public Waypoint exploredFrom;
+
     const int gridSize = 10;
 
     // Start is called before the first frame update
@@ -24,8 +28,8 @@ public class Waypoint : MonoBehaviour
     {
         return new Vector2Int
             (
-                Mathf.RoundToInt(transform.position.x / gridSize) * gridSize,
-                Mathf.RoundToInt(transform.position.z / gridSize) * gridSize
+                Mathf.RoundToInt(transform.position.x / gridSize),
+                Mathf.RoundToInt(transform.position.z / gridSize)
             );
     }
 
@@ -38,6 +42,10 @@ public class Waypoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isExplored && !changedColor)
+        {
+            changedColor = true;
+            SetTopColour(exploredColor);
+        }
     }
 }
