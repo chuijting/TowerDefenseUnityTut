@@ -25,14 +25,6 @@ public class Pathfinder : MonoBehaviour
         Vector2Int.left
     };
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        LoadBlocks();
-        ColourStartAndEnd();
-        BreadthFirstSearch();
-        CreatePath();
-    }
 
     private void CreatePath()
     {
@@ -116,9 +108,12 @@ public class Pathfinder : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<Waypoint> GetPath()
     {
-        
+        LoadBlocks();
+        ColourStartAndEnd();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
     }
 }
