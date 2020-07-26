@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [Range(0.1f, 1f)] public float dwellTime;
+    [Range(0.1f, 2f)] public float dwellTime;
 
     // Start is called before the first frame update
     void Start()
